@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать желание — Тайный Санта</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="header-logo">
+            
+            <h1>Чей<br>подарок?</h1>
+        </div>
+
+        <p>Введи имя друга, которого ты вытянул, чтобы узнать его мечту:</p>
+        
+        <input type="text" id="friendSearch" placeholder="Имя друга...">
+        <button onclick="findWish()">Узнать желание ✨</button>
+        
+        <div id="resultBox" class="result-box hidden">
+            <p id="wishText"></p>
+        </div>
+
+        <br>
+        <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; opacity: 0.7;">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        async function findWish() {
+            const name = document.getElementById('friendSearch').value.trim();
+            const resBox = document.getElementById('resultBox');
+            const resText = document.getElementById('wishText');
+
+            if (!name) return alert("Введите имя!");
+
+            try {
+                const res = await fetch(`/api/santa/wish/${encodeURIComponent(name)}`);
+                if (!res.ok) throw new Error();
+
+                const data = await res.json();
+                resBox.classList.remove('hidden');
+                resText.innerHTML = `<b>${data.name}</b> хочет:<br><span style="color: #ffeb3b; font-size: 1.5rem;">${data.wish}</span>`;
+            } catch (err) {
+                alert("Участник не найден или желание еще не оставлено.");
+                resBox.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

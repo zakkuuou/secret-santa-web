@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тайный Санта 2026</title>
+ 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="header-logo">
+
+            <div class="title-wrapper">
+                <h1>Тайный<br>Санта</h1>
+            </div>
+        </div>
+
+        <div id="step1">
+            <input type="text" id="userName" placeholder="Ваше имя">
+            <button onclick="register()">Участвовать ✨</button>
+        </div>
+
+        <div id="step2" class="hidden">
+            <p>Привет, <b id="displayMe"></b>!</p>
+            <div class="result-box">
+                Твой подопечный: <div id="giftFor" class="friend-name">?</div>
+            </div>
+            <input type="text" id="myWish" placeholder="Твое желание...">
+            <button onclick="sendWish()">Сохранить 🎁</button>
+        </div>
+
+        <div class="footer-nav">
+            <hr>
+            <p>Уже знаешь, кого вытянул?</p>
+            <button class="secondary" onclick="window.location.href='wish.html'">Найти желание друга 👀</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

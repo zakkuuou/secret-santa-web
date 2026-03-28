@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(circle, #2c3e50 0%, #000000 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Листается! */
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Снег */
+body::before {
+    content: "❄";
+    position: fixed;
+    top: -10%; left: 10%;
+    font-size: 20px; color: white; opacity: 0.3;
+    pointer-events: none;
+    animation: snow 10s linear infinite;
+    text-shadow: 20vw 30vh 0 white, 50vw 10vh 0 white, 80vw 60vh 0 white, 10vw 80vh 0 white;
+}
+
+@keyframes snow {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(110vh); }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Стили шапки */
+.header-logo { display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
+.santa-icon { width: 80px; margin-right: 15px; }
+.gift-icon { width: 70px; margin-left: 10px; }
+h1 { font-size: 2.2rem; margin: 0; color: #ff4d4d; line-height: 1; }
+
+input {
+    width: 100%; padding: 12px; margin: 15px 0;
+    border: none; border-radius: 12px; background: white;
+    color: #333; font-size: 16px; box-sizing: border-box;
+}
+
+button {
+    width: 100%; padding: 14px; margin-top: 10px;
+    background: linear-gradient(45deg, #ff4d4d, #d32f2f);
+    color: white; border: none; border-radius: 12px;
+    cursor: pointer; font-weight: bold; transition: 0.3s;
+}
+/* Стили для навигации между страницами */
+.footer-nav {
+    margin-top: 25px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+.footer-nav p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+button:hover { transform: translateY(-2px); }
+.secondary { background: linear-gradient(45deg, #4facfe, #00f2fe); margin-top: 20px; }
+
+.result-box { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0; }
+.friend-name { color: #ffeb3b; font-size: 1.8rem; margin-top: 10px; }
+.wish-text { color: #81c784; margin-top: 15px; font-style: italic; }
+.hidden { display: none; }
